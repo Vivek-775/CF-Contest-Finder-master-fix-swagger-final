@@ -1,0 +1,119 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Test project for API documentation",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http"
+  ],
+  "host": "localhost:3020",
+  "basePath": "/api",
+  "components": {
+    "schemes": {
+      "howto": {
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/howto": {
+      "get": {
+        "tags": [
+          "Howto"
+        ],
+        "summary": "Getting the how to page",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/howto"
+            }
+          }
+        }
+      }
+    },
+    "/about": {
+      "post": {
+        "tags": [
+          "About"
+        ],
+        "description": "Decription about developer",
+        "parameters": [
+          {
+            "name": "about",
+            "in": "body",
+            "description": "About the developer",
+            "schema": {
+              "$ref": "#/components/schemas/about"
+            }
+          }
+        ]
+      }
+    },
+    "/index": {
+      "parameters": [
+        {
+          "name": "Index",
+          "in": "path",
+          "required": true,
+          "description": "Front page of the project",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "summary": "Front page",
+        "tags": [
+          "Index"
+        ],
+        "parameters": [
+          {
+            "name": "index",
+            "in": "body",
+            "description": "Main page",
+            "schema": {
+              "$ref": "#/components/schemas/index"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Index",
+            "schema": {
+              "$ref": "#/components/schemas/index"
+            }
+          }
+        }
+      }
+    },
+    "/404": {
+      "parameters": [
+        {
+          "name": "Error",
+          "in": "path",
+          "required": true,
+          "description": "Error page",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Error detected",
+        "tags": [
+          "404"
+        ],
+        "responses": {
+          "200": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/components/schemas/delete"
+            }
+          }
+        }
+      }
+    }
+  }
+}
